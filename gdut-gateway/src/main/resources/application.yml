@@ -10,7 +10,7 @@ spring:
         - id: user-service-route
           #代理的服务地址
           #uri: http://127.0.0.1:9091
-          uri: lb://consumer
+          uri: lb://user-service
           # 路由断言： 就是访问下面路径时转发到上面的uri地址,默认不改动路径只改地址与端口
           predicates:
             #- Path=/user/**
