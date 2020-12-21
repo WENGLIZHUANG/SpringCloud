@@ -1,0 +1,20 @@
+server:
+  #port: 10086
+  port: ${port:10086}
+spring:
+  application:
+    name: eureka-service
+eureka:
+  client:
+    service-url:
+      # eureka 服务地址 ：如果是集群需要指定其它集群的eureka地址
+      # 该地址是默认的服务注册时访问注册中心的地址
+      #defaultZone: http://127.0.0.1:10086/eureka
+      defaultZone: ${defaultZone:http://127.0.0.1:10086/eureka} #${}表示jvm启动时若能找到对应的defaultZone参数则使用，否则使用后面的默认值
+    # 不拉取服务，默为true
+    fetch-registry: false
+    # 不注册自己到注册中心，如果其他集群需要本注册中心的地址，可以将false改为true，默认为true
+    register-with-eureka: false
+  server:
+    # 服务失效剔除时间
+    eviction-interval-timer-in-ms: 60000

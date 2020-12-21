@@ -1,0 +1,22 @@
+# 服务器端口
+server:
+  port: ${port:9091}
+# spring配置
+spring:
+  # 数据源： hikaripool在引入jdbc依赖时已经在依赖在里面了
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/user
+    username: root
+    password: weng
+  application:
+    name: user-service
+# mybatis配置
+mybatis:
+  # 起别名
+  type-aliases-package: gdut.wlz.domain
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+      #defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka  客户端注册到多个eureka
